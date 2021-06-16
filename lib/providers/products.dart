@@ -72,7 +72,7 @@ class Products with ChangeNotifier {
     final url = Uri.parse(
         'https://fire-3fefc-default-rtdb.asia-southeast1.firebasedatabase.app/products.json');
 
-    http
+    return http
         .post(
       url,
       body: json.encode(
