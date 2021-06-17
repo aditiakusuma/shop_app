@@ -20,6 +20,7 @@ class Auth with ChangeNotifier {
         _token != null) {
       return _token;
     }
+    return null;
   }
 
   String get userId {
@@ -65,5 +66,12 @@ class Auth with ChangeNotifier {
 
   Future<void> login(String email, String password) async {
     return await _authenticate(email, password, 'signInWithPassword');
+  }
+
+  void logout() {
+    _token = null;
+    _userId = null;
+    _expiryDate = null;
+    notifyListeners();
   }
 }
