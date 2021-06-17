@@ -133,7 +133,7 @@ class Products with ChangeNotifier {
 
     if (prodIndex >= 0) {
       final url = Uri.parse(
-          'https://fire-3fefc-default-rtdb.asia-southeast1.firebasedatabase.app/products/$id.json');
+          'https://fire-3fefc-default-rtdb.asia-southeast1.firebasedatabase.app/products/$id.json?auth=$authToken');
 
       await http.patch(
         url,
@@ -156,7 +156,7 @@ class Products with ChangeNotifier {
 
   Future<void> deleteProduct(String id) async {
     final url = Uri.parse(
-        'https://fire-3fefc-default-rtdb.asia-southeast1.firebasedatabase.app/products/$id.json');
+        'https://fire-3fefc-default-rtdb.asia-southeast1.firebasedatabase.app/products/$id.json?auth=$authToken');
     final existingProductIndex =
         _items.indexWhere((element) => element.id == id);
     var existingProduct = _items[existingProductIndex];
